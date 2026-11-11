@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>拾光甜點工作室 Light &amp; Shadow Dessert Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Noto+Serif+TC:wght@400;600&amp;display=swap">
+<style>
+:root{--bg:#F5EBE6;--bg2:#EDDFD7;--ink:#8C6D58;--ink-d:#5E4638;--sage:#6E7B68;--card:#FBF5F1;--line:rgba(140,109,88,.28);--glow:255,226,170;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2A221D;--bg2:#332A24;--ink:#D3B49C;--ink-d:#EBD8C8;--sage:#A5B39D;--card:#382E27;--line:rgba(211,180,156,.25);--glow:200,150,80}}
+:root[data-theme="dark"]{--bg:#2A221D;--bg2:#332A24;--ink:#D3B49C;--ink-d:#EBD8C8;--sage:#A5B39D;--card:#382E27;--line:rgba(211,180,156,.25);--glow:200,150,80}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.9 "Noto Serif TC",serif}
+h1,h2,h3{font-weight:600;color:var(--ink-d);margin:0;line-height:1.5}
+.en{font-family:"Cormorant Garamond",serif;font-style:italic;letter-spacing:.04em}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 5vw;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{font-weight:600;color:var(--ink-d);text-decoration:none;letter-spacing:.12em;white-space:nowrap}
+nav{display:flex;gap:22px;overflow-x:auto;font-size:14px}
+nav a{text-decoration:none;white-space:nowrap}nav a:hover{color:var(--sage)}
+.hero{position:relative;min-height:88vh;display:grid;align-content:center;padding:12vh 5vw;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 78% 18%,rgba(var(--glow),.55),transparent 70%),linear-gradient(170deg,var(--bg),var(--bg2))}
+.hero::before{content:"";position:absolute;right:-8%;top:-20%;width:46%;height:150%;background:linear-gradient(105deg,rgba(var(--glow),.35),transparent 70%);transform:rotate(14deg);filter:blur(30px)}
+.dot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(var(--glow),.9),rgba(var(--glow),0) 70%);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(24px,-34px) scale(1.15)}}
+.hero h1{position:relative;font-size:clamp(30px,5.6vw,60px);letter-spacing:.14em;max-width:15em}
+.hero p{position:relative;max-width:30em;margin:22px 0 34px}
+.btns{position:relative;display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;padding:11px 28px;border:1px solid var(--ink);border-radius:40px;background:var(--ink);color:var(--bg);text-decoration:none;font:inherit;font-size:15px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}.btn:hover{background:var(--sage);border-color:var(--sage);color:#fff}
+section{padding:90px 5vw;max-width:1120px;margin:0 auto}
+.alt{max-width:none;background:var(--bg2)}.alt>.in{max-width:1120px;margin:0 auto}
+h2{font-size:clamp(24px,3.4vw,34px);letter-spacing:.1em;margin-bottom:8px}
+.sub{font-size:20px;margin:0 0 34px;color:var(--sage)}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.slide{flex:0 0 min(260px,78%);scroll-snap-align:start;background:var(--card);border-radius:120px 120px 14px 14px;padding:150px 22px 24px;position:relative;border:1px solid var(--line)}
+.slide::before{content:"";position:absolute;inset:16px 16px auto;height:120px;border-radius:100px 100px 6px 6px;background:var(--c)}
+.tag{display:inline-block;font-size:12px;padding:1px 10px;border-radius:20px;background:var(--sage);color:#fff;margin-right:6px}
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.story p{max-width:34em}
+.facts{display:grid;gap:14px}
+.fact{padding:16px 20px;border-left:3px solid var(--sage);background:var(--card)}
+.fact b{display:block;color:var(--ink-d)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{padding:8px 22px;border-radius:30px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:15px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.items{display:grid;gap:0;border-top:1px solid var(--line)}
+.item{border-bottom:1px solid var(--line)}
+.item>button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;gap:16px;padding:18px 4px;cursor:pointer}
+.item>button:focus-visible{outline:2px solid var(--sage)}
+.item .n{color:var(--ink-d);font-weight:600}.item .meta{font-size:13px;margin-top:2px}
+.detail{display:none;padding:0 4px 20px;grid-template-columns:120px 1fr;gap:20px}
+.item.open .detail{display:grid}
+.ph{aspect-ratio:1;border-radius:10px;background:var(--c)}
+.detail p{margin:0 0 6px;font-size:14px}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:92px;gap:12px}
+.gal div{border-radius:10px;display:flex;align-items:flex-end;padding:10px 12px;font-size:13px;color:#fff;background:var(--c)}
+.gal .a{grid-column:span 3;grid-row:span 3;border-radius:200px 200px 10px 10px}.gal .b{grid-column:span 3;grid-row:span 2}.gal .c{grid-column:span 2;grid-row:span 2}.gal .d{grid-column:span 1;grid-row:span 2}.gal .e{grid-column:span 3;grid-row:span 1}
+form{display:grid;gap:16px;max-width:520px}
+label{display:grid;gap:4px;font-size:14px}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink-d)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#ok{display:none;padding:16px 20px;border-left:3px solid var(--sage);background:var(--card);max-width:520px;margin-top:18px}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+table{border-collapse:collapse;width:100%}td{padding:8px 0;border-bottom:1px solid var(--line)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px rgba(110,123,104,.25)}
+footer{text-align:center;padding:40px 5vw;font-size:13px;border-top:1px solid var(--line)}
+@media(max-width:760px){.story,.visit{grid-template-columns:1fr}.gal{grid-template-columns:repeat(2,1fr)}.gal .a,.gal .b,.gal .c,.gal .d,.gal .e{grid-column:span 1;grid-row:span 2}section{padding:64px 5vw}.detail{grid-template-columns:80px 1fr}header{flex-direction:column;align-items:flex-start;gap:6px}}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="#top">拾光甜點工作室</a>
+<nav aria-label="主選單"><a href="#about">關於我們</a><a href="#menu">今日甜點</a><a href="#space">空間介紹</a><a href="#reserve">線上訂位</a><a href="#visit">交通與營業資訊</a></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+<span class="dot" style="width:180px;height:180px;right:14%;top:18%"></span>
+<span class="dot" style="width:90px;height:90px;right:32%;top:52%;animation-delay:-5s"></span>
+<span class="dot" style="width:130px;height:130px;right:6%;top:62%;animation-delay:-9s"></span>
+<p class="en" style="position:relative;margin:0 0 8px;font-size:22px">Light &amp; Shadow Dessert Lab</p>
+<h1>在巷弄的光影裡，留住一抹手作的甘甜。</h1>
+<p>台中西區、草悟道旁的老宅溫室。每日限量手工現做，選用在地有機食材與小農鮮乳。</p>
+<div class="btns"><a class="btn" href="#reserve">線上訂位</a><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=台中市西區+勤美草悟道" target="_blank" rel="noopener">Google 導航</a></div>
+</div>
+
+<section id="special">
+<h2>本週限定</h2><p class="sub en">This week only</p>
+<div class="rail" tabindex="0" aria-label="本週限定甜點，可左右捲動">
+<article class="slide" style="--c:#C9A27A"><h3>焦糖栗子戚風</h3><p><span class="tag">蛋奶素</span>甜度 ●●○</p><p>栗子泥與黑糖焦糖，蛋糕體鬆軟帶茶香。</p></article>
+<article class="slide" style="--c:#8FA086"><h3>若竹抹茶塔</h3><p><span class="tag">蛋奶素</span>甜度 ●○○</p><p>小山園若竹抹茶，搭配微苦酥脆塔殼。</p></article>
+<article class="slide" style="--c:#C98F74"><h3>無花果蜂蜜塔</h3><p><span class="tag">蛋奶素</span>甜度 ●●○</p><p>在地蜂蜜烤無花果，奶餡清爽不膩。</p></article>
+<article class="slide" style="--c:#B8A08E"><h3>大甲芋頭戚風</h3><p><span class="tag">蛋奶素</span>甜度 ●●○</p><p>手工芋泥夾心，鮮奶油只加一點點。</p></article>
+</div>
+</section>
+
+<div class="alt"><section class="in" id="about" style="padding-left:0;padding-right:0">
+<div class="story">
+<div>
+<h2>老宅裡的一方溫室</h2><p class="sub en">Our story</p>
+<p>這棟巷弄老宅，曾經只有一扇朝南的窗。我們把屋頂換成玻璃，讓午後的光穿過植物，落在每一張桌子上。</p>
+<p>甜點也一樣：每天少量製作，賣完為止。雞蛋、鮮乳與水果來自台灣中部的小農夥伴，不為量產，只為把當季的味道留住。</p>
+</div>
+<div class="facts">
+<div class="fact"><b>老宅改建</b>溫室花園空間，日光區、圖書角、戶外庭園座位</div>
+<div class="fact"><b>每日限量</b>手工現做，選用在地有機食材與小農鮮乳</div>
+<div class="fact"><b>安靜工作</b>全店免費 Wi-Fi，座位旁備有充足插座</div>
+</div>
+</div>
+</section></div>
+
+<section id="menu">
+<h2>今日甜點</h2><p class="sub en">Menu &amp; seasonal specials</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="items" id="items" role="tabpanel"></div>
+<p style="font-size:13px;margin-top:18px">甜度等級以 ●○○（微甜）到 ●●●（偏甜）標示。價格與供應以當日現場為準。</p>
+</section>
+
+<div class="alt"><section class="in" id="space" style="padding-left:0;padding-right:0">
+<h2>空間介紹</h2><p class="sub en">The space</p>
+<div class="gal">
+<div class="a" style="--c:#B79B7E">日光區</div><div class="b" style="--c:#7E8D77">植栽長廊</div><div class="c" style="--c:#A98468">圖書角</div><div class="d" style="--c:#8C6D58">吧檯</div><div class="e" style="--c:#97A18E">戶外庭園座位</div>
+</div>
+<p style="margin-top:20px;max-width:36em">植栽由店主親手搭配：窗邊放耐陰的蕨類，庭園種香草，讓你點的拿鐵旁邊，剛好有一片薄荷葉。</p>
+</section></div>
+
+<section id="reserve">
+<h2>線上訂位與預購</h2><p class="sub en">Reservation &amp; pre-order</p>
+<div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-f="dine">內用訂位</button><button class="tab" role="tab" aria-selected="false" data-f="cake">整顆蛋糕預購</button></div>
+<form id="form">
+<div class="row"><label>姓名<input name="name" required autocomplete="name"></label><label>電話<input name="tel" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label id="dl">用餐日期<input name="date" type="date" required></label>
+<label><span id="tl">時段</span><select name="time" id="time"></select></label></div>
+<label id="pax">人數<select name="pax"><option>1 位</option><option selected>2 位</option><option>3 位</option><option>4 位</option><option>5–6 位</option></select></label>
+<label id="pref">特殊偏好<select name="pref"><option>無</option><option>希望靠窗</option><option>需要插座（工作）</option><option>戶外庭園</option></select></label>
+<label id="cakel" hidden>蛋糕口味<select name="cake"><option>焦糖栗子戚風</option><option>大甲芋頭戚風</option><option>經典香草戚風</option></select></label>
+<button class="btn" type="submit" id="go">送出訂位</button>
+</form>
+<div id="ok" role="status"></div>
+<p style="font-size:13px;max-width:34em">整顆蛋糕請於取貨日 3 天前預購。這是示範表單，送出後不會真的傳送資料。</p>
+</section>
+
+<div class="alt"><section class="in" id="visit" style="padding-left:0;padding-right:0">
+<h2>交通與營業資訊</h2><p class="sub en">Visit us</p>
+<div class="visit">
+<div>
+<p class="status"><i></i><span id="stat">內用候位：目前有空位</span></p>
+<table><tr><td>週二至週五</td><td>11:00–19:00</td></tr><tr><td>週六、週日</td><td>10:00–19:00</td></tr><tr><td>公休</td><td>每週一</td></tr></table>
+<p style="font-size:13px">候位狀況為示意，實際請以現場為準。</p>
+</div>
+<div>
+<p>台中市西區，勤美草悟道周邊巷弄。</p>
+<p>停車：步行 3 分鐘內有特約停車場，內用消費可折抵停車費。<br>公車：搭乘市區公車至「草悟道」站，步行約 5 分鐘。</p>
+<a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=台中市西區+勤美草悟道" target="_blank" rel="noopener">開啟 Google 地圖</a>
+</div>
+</div>
+</section></div>
+</main>
+<footer><span class="en" style="font-size:18px">Light &amp; Shadow Dessert Lab</span><br>© 2026 拾光甜點工作室</footer>
+
+<script>
+const M={
+"經典戚風":[["香草鮮乳戚風","蛋奶素","●○○","大甲小農鮮乳、放牧雞蛋","手沖淺焙","#D8BFA3"],["焦糖栗子戚風","蛋奶素","●●○","栗子泥、黑糖","中焙手沖","#C9A27A"],["日本小山園抹茶戚風","蛋奶素","●○○","小山園若竹抹茶","燕麥奶拿鐵","#8FA086"],["大甲芋頭戚風","蛋奶素","●●○","大甲芋頭","淺焙手沖","#B8A08E"]],
+"本季塔類":[["無花果蜂蜜塔","蛋奶素","●●○","在地蜂蜜、無花果","茉莉冷萃","#C98F74"],["檸檬白巧克力塔","蛋奶素","●●○","有機檸檬","中淺焙手沖","#E0CC8E"],["全素黑芝麻塔","全素","●○○","黑芝麻、椰奶","燕麥奶拿鐵","#7A6B62"]],
+"手沖與特調":[["中淺焙手沖咖啡","全素","—","單品豆，每週更換","搭配任一戚風","#8C6D58"],["燕麥奶拿鐵","全素","●○○","植物奶，無額外糖漿","搭配抹茶戚風","#C7B3A0"],["豆乳焙茶拿鐵","全素","●○○","焙茶、豆乳","搭配塔類","#A58E75"]],
+"鹹食輕食":[["起司火腿可頌三明治","蛋奶","—","當日現烤可頌","美式或手沖","#D3B58A"],["時蔬烘蛋佐沙拉","蛋奶素","—","在地有機時蔬","淺焙手沖","#9BAA8E"]]};
+const tabs=document.getElementById('tabs'),items=document.getElementById('items');
+function show(k){
+ [...tabs.children].forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));
+ items.innerHTML=M[k].map(i=>`<div class="item"><button aria-expanded="false"><span><span class="n">${i[0]}</span><span class="meta"><br><span class="tag">${i[1]}</span>甜度 ${i[2]}</span></span><span class="en">＋</span></button><div class="detail"><div class="ph" style="--c:${i[5]}"></div><div><p>選用食材：${i[3]}</p><p>搭配推薦：${i[4]}</p></div></div></div>`).join('');
+}
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.dataset.k=k;b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+items.addEventListener('click',e=>{const b=e.target.closest('.item>button');if(!b)return;const it=b.parentElement;const o=it.classList.toggle('open');b.setAttribute('aria-expanded',o);b.lastChild.textContent=o?'－':'＋'});
+show("經典戚風");
+// reservation
+let mode='dine';
+const T={dine:['11:00','12:30','14:00','15:30','17:00'],cake:['11:00','13:00','15:00','17:00']};
+function setMode(m){mode=m;
+ document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-selected',b.dataset.f===m));
+ const c=m==='cake',f=document.getElementById('form');
+ f.date.parentElement.firstChild.textContent=c?'取貨日期':'用餐日期';
+ document.getElementById('tl').textContent=c?'自取時段':'時段';
+ document.getElementById('pax').hidden=document.getElementById('pref').hidden=c;
+ document.getElementById('cakel').hidden=!c;
+ document.getElementById('go').textContent=c?'送出預購':'送出訂位';
+ document.getElementById('time').innerHTML=T[m].map(t=>`<option>${t}</option>`).join('');
+ const d=new Date();d.setDate(d.getDate()+(c?3:0));f.date.min=d.toISOString().slice(0,10);document.getElementById('ok').style.display='none';}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>setMode(b.dataset.f));
+setMode('dine');
+document.getElementById('form').onsubmit=e=>{e.preventDefault();const f=e.target,o=document.getElementById('ok');
+ o.textContent=mode==='cake'?`${f.name.value} 您好，已收到 ${f.date.value} ${f.time.value} 的「${f.cake.value}」整顆預購。我們會以電話確認。`:`${f.name.value} 您好，已收到 ${f.date.value} ${f.time.value}、${f.pax.value}（${f.pref.value}）的訂位。我們會以電話確認。`;
+ o.style.display='block'};
+// open status (Taiwan time)
+(()=>{const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Taipei'}));const d=n.getDay(),h=n.getHours()+n.getMinutes()/60;
+ const open=d!==1&&h>=(d===0||d===6?10:11)&&h<19;
+ document.getElementById('stat').textContent=open?'營業中・內用候位：目前有空位':'目前休息中，請見下方營業時間';})();
+</script>
+</body>
+</html>
